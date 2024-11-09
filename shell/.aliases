@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# GIT
+alias gs='git status'
+alias gc='gitmoji -c' # Assumes an installed `gitmoji`
+alias gf='git fetch'
+alias gp='git push'
+alias grs='git restore --staged'
+alias grl='git revert HEAD'
+alias gress='git reset --soft HEAD~1'
+alias gresh='git reset --hard HEAD~1'
+alias ggraph='git log --all --graph --decorate'
+alias ggraphoneline='git log --all --graph --decorate --oneline'
+alias gamend='git commit --amend --no-edit'
+
+
