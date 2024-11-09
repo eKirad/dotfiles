@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-# GIT
+# ---------------------------------------------------
+# 1. GIT
+# ---------------------------------------------------
 alias gs='git status'
 alias gc='gitmoji -c' # Assumes an installed `gitmoji`
 alias gf='git fetch'
@@ -13,7 +15,11 @@ alias ggraph='git log --all --graph --decorate'
 alias ggraphoneline='git log --all --graph --decorate --oneline'
 alias gamend='git commit --amend --no-edit'
 
-# BASH
+#----------------------------------------------------
+# 2. BASH 
+# ---------------------------------------------------
+
+# 2.1 List files
 alias llatest='ls -lArt | tail -n 1'
 alias grep='grep --color'
 alias get_full_filename='rev | cut -d " " -f1 | rev'
@@ -21,5 +27,10 @@ alias get_filename_only='get_full_filename | cut -d "." -f1'
 alias get_fileextention='get_full_filename | cut -d "." -f2'
 alias archive_directory='find . -print0 | xargs -0 tar -cvzf archive.tar.gz'
 alias get_most_recently_modified_file='find . -type f -print0 | xargs -0 stat -f "%m %N" | sort -rn | head -1 | cut -d' ' -f2'
-alias check_sha='shasum -a 256`
 
+# 2.2 Checksum
+alias check_sha='shasum -a 256'
+
+# 2.3 Protect against overwritting
+alias mv='mv -i'
+alias cp='cp -i'
