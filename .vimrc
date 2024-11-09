@@ -4,7 +4,7 @@
 
 " Comments in Vimscript start with a `"`.
 
-" 0.1 Vi-compatibility
+" Vi-compatibility
 " DESCRIPTION: Vim is based on Vi. Setting `nocompatible` switches from the default
 " Vi-compatibility mode and enables useful Vim functionality. This
 " configuration option turns out not to be necessary for the file named
@@ -14,11 +14,11 @@
 " `vim -u foo`).
 set nocompatible
 
-" 0.2 Syntax highlighting
+" Syntax highlighting
 " DESCRIPTION: Turn on syntax highlighting.
 syntax on
 
-" 0.3 Vim startup message
+" Vim startup message
 " DESCRIPTION: Disable the default Vim startup message.
 set shortmess-=I
 
