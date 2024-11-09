@@ -96,11 +96,19 @@ set hls
 nmap Q <Nop> 
 
 " ---------------------------------------------------------------------------------
-" 5. Audio configs
+" 5. Environment configs
 " ---------------------------------------------------------------------------------
 
-" 5.1 Disable audible bell on error(s)
+" 5.1 Audio configs
+
+" 5.1.1 Disable audible bell on error(s)
 set noerrorbells visualbell t_vb=
+
+" 5.2 Directory configs
+
+" 5.2.1 Auto change dir
+" DESCRIPTION: Automatically set the CD (current directory) to be the directory of the last opened file
+set autochdir
 
 " ---------------------------------------------------------------------------------
 " 6. Mouse configs
