@@ -39,3 +39,8 @@ alias cp='cp -i'
 mcd() {
     mkdir "${1}" && cd "${1}" 	
 }
+
+# 2.5 Execute command in directory
+xin(){
+    cd "${1}" && shift && "${@}"
+}
