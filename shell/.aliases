@@ -34,3 +34,8 @@ alias check_sha='shasum -a 256'
 # 2.3 Protect against overwritting
 alias mv='mv -i'
 alias cp='cp -i'
+
+# 2.4 Create directory & navigate to it
+mcd() {
+    mkdir "${1}" && cd "${1}" 	
+}
