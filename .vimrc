@@ -1,6 +1,11 @@
+" ---------------------------------------------------------------------------------
+" 0. Basic configs
+" ---------------------------------------------------------------------------------
+
 " Comments in Vimscript start with a `"`.
 
-" Vim is based on Vi. Setting `nocompatible` switches from the default
+" 0.1 Vi-compatibility
+" DESCRIPTION: Vim is based on Vi. Setting `nocompatible` switches from the default
 " Vi-compatibility mode and enables useful Vim functionality. This
 " configuration option turns out not to be necessary for the file named
 " '~/.vimrc', because Vim automatically enters nocompatible mode if that file
@@ -9,16 +14,23 @@
 " `vim -u foo`).
 set nocompatible
 
-" Turn on syntax highlighting.
+" 0.2 Syntax highlighting
+" DESCRIPTION: Turn on syntax highlighting.
 syntax on
 
-" Disable the default Vim startup message.
-set shortmess+=I
+" 0.3 Vim startup message
+" DESCRIPTION: Disable the default Vim startup message.
+set shortmess-=I
 
-" Show line numbers.
+" ---------------------------------------------------------------------------------
+" 1. Line counter configs
+" ---------------------------------------------------------------------------------
+
+" 1.1 Show line numbers.
 set nu
 
-" This enables relative line numbering mode. With both number and
+" 1.2 Show relative line numbers.
+" DESCRIPTIOIN: This enables relative line numbering mode. With both number and
 " relativenumber enabled, the current line shows the true line number, while
 " all other lines (above and below) are numbered relative to the current line.
 " This is useful because you can tell, at a glance, what count is needed to
@@ -26,33 +38,62 @@ set nu
 " down.
 set rnu
 
-" Always show the status line at the bottom, even if you only have one window open.
+" ---------------------------------------------------------------------------------
+" 2 Status line configs
+" ---------------------------------------------------------------------------------
+
+" 2.1 Visibility
+" DESCRIPTION: Always show the status line at the bottom, even if you only have one window open.
+" 0 - hides the status line completely
+" 1 - shows the status line only if there are multiple windows (split windows) open
+" 2 - makes the status line always visible
+" 3 - shows a single status line across the entier Vim i-face, even with multiple windows open
 set laststatus=2
 
-" The backspace key has slightly unintuitive behavior by default. For example,
+" 2.2 Backspace behaviour
+" DESCRIPTION: The backspace key has slightly unintuitive behavior by default. For example,
 " by default, you can't backspace before the insertion point set with 'i'.
 " This configuration makes backspace behave more reasonably, in that you can
 " backspace over anything.
 set backspace=indent,eol,start
 
-" By default, Vim doesn't let you hide a buffer (i.e. have a buffer that isn't
-" shown in any window) that has unsaved changes. This is to prevent you from "
-" forgetting about unsaved changes and then quitting e.g. via `:qa!`. We find
-" hidden buffers helpful enough to disable this protection. See `:help hidden`
-" for more information on this.
+" ---------------------------------------------------------------------------------
+" 3 Buffer configs
+" ---------------------------------------------------------------------------------
+
+" 3.1 Allow buffer switch
+" DESCRIPTION: By default, Vim doesn't allow hiding a buffer (i.e. switching to another 
+" buffer that is shown in any window) that has unsaved changes to prevent from 
+" forgetting about unsaved changes and then quitting e.g. via `:qa!`
 set hidden
 
-" This setting makes search case-insensitive when all characters in the string
+" ---------------------------------------------------------------------------------
+" 3. Search configs
+" ---------------------------------------------------------------------------------
+
+" 3.1 Case-insensitive search
+" DESCRIPTION: This setting makes search case-insensitive when all characters in the string
 " being searched are lowercase. However, the search becomes case-sensitive if
 " it contains any capital letters. This makes searching more convenient.
 set ignorecase
+
+" 3.2 Smart case search
 set smartcase
 
-" Enable searching as you type, rather than waiting till you press enter.
+" 3.3 Incremental search 
+" DESCRIPTION:  Enable searching as you type, rather than waiting till you press enter.
 set incsearch
 
-" Unbind some useless/annoying default key bindings.
-nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
+" 3.4 Highligh search match
+set hls
+
+" ---------------------------------------------------------------------------------
+" 4. Binding/unbinding configs
+" ---------------------------------------------------------------------------------
+" DESCRIPTION: Unbind useless/annoying default key bindings.
+
+" 4.1 Unbind `Q` as `Q` in normal mode enters Ex mode. 
+nmap Q <Nop> 
 
 " Disable audible bell because it's annoying.
 set noerrorbells visualbell t_vb=
