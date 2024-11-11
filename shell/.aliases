@@ -38,7 +38,7 @@ alias cp='cp -i'
 # 2.4 Navigation
 alias ..='cd ..'
 alias ....='cd ../..'
-alias --='cd -'
+alias -- -='cd -'
 
 # 2.5 Create directory & navigate to it
 mcd() {
