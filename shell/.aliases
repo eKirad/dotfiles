@@ -14,7 +14,7 @@ alias gresh='git reset --hard HEAD~1'
 alias ggraph='git log --all --graph --decorate'
 alias ggraphoneline='git log --all --graph --decorate --oneline'
 alias gamend='git commit --amend --no-edit'
-
+alias gadde='f () { git add . ":!$1"; }; f'
 #----------------------------------------------------
 # 2. BASH 
 # ---------------------------------------------------
