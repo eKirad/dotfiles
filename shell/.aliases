@@ -37,22 +37,25 @@ alias check_sha='shasum -a 256'
 alias mv='mv -i'
 alias cp='cp -i'
 
-# 2.4 Navigation
+# 2.4 Auto-correct typos
+alias dc='cd'
+
+# 2.5 Navigation
 alias ..='cd ..'
 alias ....='cd ../..'
 alias -- -='cd -'
 
-# 2.5 Create directory & navigate to it
+# 2.6 Create directory & navigate to it
 mcd() {
     mkdir "${1}" && cd "${1}" 	
 }
 
-# 2.6 Execute command in directory
+# 2.7 Execute command in directory
 xin(){
     cd "${1}" && shift && "${@}"
 }
 
-# 2.7 List files & grep
+# 2.8 List files & grep
 lsgrep() {
   ls -la | grep "${1}"
 }
