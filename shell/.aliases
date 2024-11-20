@@ -5,6 +5,7 @@
 # ---------------------------------------------------
 alias gs='git status'
 alias gc='gitmoji -c' # Assumes an installed `gitmoji`
+alias ga='git add'
 alias gf='git fetch'
 alias gp='git push'
 alias grs='git restore --staged'
