@@ -42,7 +42,7 @@ echo "Adding .aliases to .zshrc"
 if ! grep -q "source $HOME/.aliases" "$ZSHRC_PATH"; then
 	echo "source $HOME/.aliases" >> "$ZSHRC_PATH"
 else 
-	echo "'source $ALIASES_PATH' already exists in '.zshrc'"
+	echo "'source $ALIASES_PATH' already exists in '.zshrc'."
 fi
 
 echo "-----------------------------------------------------------------"
@@ -65,7 +65,7 @@ if ! grep -q "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-h
 	echo "# This an auto-generated line, for further details please refer to the `post-install` script" >> "$ZSH_SETTINGS_PATH"
 	echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "$ZSH_SETTINGS_PATH" 
 else 
-	echo "'source zsh-syntax-highlighting from brew' already exists in settings.zsh"
+	echo "'source zsh-syntax-highlighting from brew' already exists in settings.zsh."
 fi
 
 echo "-----------------------------------------------------------------"
