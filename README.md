@@ -7,10 +7,10 @@ Collection of customized and handy configuration files for an easy and quick dev
   - install `diff-so-fancy`[^1] with `brew`
   - clone and install `oh-my-zsh`[^2]
 - In order to make use of all the listed *dotfiles*, execute the `post-install` script, which involves:
-  - link the `.vimrc` file
-  - link the zsh-related `settings.zsh`
-  - link the `.aliases` file
-  - install several ZSH plug-ins, namely: `zsh-syntax-highlighting`[^3], `zsh-completions`[^4], and `zsh-autosuggestions`[^5].  
+  - linking the `.vimrc` file
+  - linking the zsh-related `settings.zsh`
+  - linking the `.aliases` file
+  - installing several ZSH plug-ins, namely: `zsh-syntax-highlighting`[^3], `zsh-completions`[^4], and `zsh-autosuggestions`[^5].  
 
 ### Aliases
 Note: Some of the `git` aliases assume an installed `gitmoji`[^6]. Please refer to the official documentation for further details and installation instructions.
