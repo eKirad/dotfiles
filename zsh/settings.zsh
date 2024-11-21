@@ -15,6 +15,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v
 autoload -U edit-command-line && zle -N edit-command-line
 setopt interactivecomments
+
 # 1.2 Movement
 bindkey -M viins 'gg' beginning-of-buffer-or-history
 bindkey -M viins 'G' end-of-buffer-or-history
@@ -31,3 +32,5 @@ bindkey "^R" history-incremental-search-backward
 # 2. Editor
 export EDITOR=vim
 
+# This an auto-generated line, for further details please refer to the  script
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
