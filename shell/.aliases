@@ -67,4 +67,8 @@ curljq() {
     curl "${1}" | jq "." # Assumes an installed `jq` 
 }
 
-
+#----------------------------------------------------
+# 3. ZSH 
+# ---------------------------------------------------
+alias zconf="vim ~/.zshrc"
+alias zsource="source ~/.zshrc"
