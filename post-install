@@ -64,7 +64,7 @@ install_brew_package_if_needed "zsh-syntax-highlighting"
 
 echo "Adding ZSH-syntax-highlighting to settings.zsh" 
 if ! grep -q "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" "$ZSH_SETTINGS_PATH"; then
-	echo "# This an auto-generated line, for further details please refer to the `post-install` script" >> "$ZSH_SETTINGS_PATH"
+	echo "# This an auto-generated line, for further details please refer to the '../post-install' script" >> "$ZSH_SETTINGS_PATH"
 	echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "$ZSH_SETTINGS_PATH" 
 else 
 	echo "'source zsh-syntax-highlighting from brew' already exists in settings.zsh."
