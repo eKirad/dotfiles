@@ -3,7 +3,14 @@
 # set -x
 set -e
 
-# 1. ZSH
+source ./shell/functions
+
+# 1. Diff so fancy
+
+PACKAGE="diff-so-fancy"
+install_brew_package_if_needed "$PACKAGE"
+
+# 2. ZSH
 
 CURRENT_DIR=$(pwd)
 
