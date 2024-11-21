@@ -12,12 +12,8 @@ Collection of customized and handy configuration files for an easy and quick dev
   - link the `.aliases` file
   - install several ZSH plug-ins, namely: `zsh-syntax-highlighting`[^3], `zsh-completions`[^4], and `zsh-autosuggestions`[^5].  
 
-## Usage
-In order to use the dotfiles, one would either need to move each file to `~/` or use a symlink.
-
 ### Aliases
-Note that in order to use the `alias`-es defined in the corresponding (`.aliases`) dotfile, one would need to include it in the shell startup file(s), like `.bashrc` or `.zshrc`.
-Additionally, some of the `git` aliases assume an installed `gitmoji`[^6]. Please refer to the official documentation for further details and installation instructions.
+Note: Ssome of the `git` aliases assume an installed `gitmoji`[^6]. Please refer to the official documentation for further details and installation instructions.
 
 [^1]: `diff-so-fancy` - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 [^2]: `oh-my-zsh` - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzshi)
