@@ -15,9 +15,9 @@ Collection of customized and handy configuration files for an easy and quick dev
 ### Aliases
 Note: Some of the `git` aliases assume an installed `gitmoji`[^6]. Please refer to the official documentation for further details and installation instructions.
 
-[^1]: diff-so-fancy - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
-[^2]: oh-my-zsh - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzshi)
-[^3]: zsh-syntax-highlighting - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-autosuggestions)
-[^4]: zsh-completions - [zsh-completions](https://github.com/zsh-users/zsh-completions)
-[^5]: zsh-autosuggestions - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-[^6]: gitmoji - [gitmoji](https://github.com/carloscuesta/gitmoji)
+[^1]: `diff-so-fancy` GitHub - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+[^2]: `oh-my-zsh` GitHub  - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzshi)
+[^3]: `zsh-syntax-highlighting` GitHub - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-autosuggestions)
+[^4]: `zsh-completions` GitHub - [zsh-completions](https://github.com/zsh-users/zsh-completions)
+[^5]: `zsh-autosuggestions` GitHub - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+[^6]: `gitmoji` GitHub - [gitmoji](https://github.com/carloscuesta/gitmoji)
