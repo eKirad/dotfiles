@@ -27,7 +27,8 @@ else
 	echo "'source $ZSH_SETTINGS_PATH' already exists in '.zshrc'."
 fi
 
-echo "****************************************************************"
+echo "----------------------------------------------------------------"
+
 # 3. Aliases 
 
 # 2.1 Create Symlink
@@ -42,7 +43,7 @@ else
 	echo "'source $ALIASES_PATH' already exists in '.zshrc'"
 fi
 
-echo "****************************************************************"
+echo "-----------------------------------------------------------------"
 
 # 4. ZSH Plugins
 
@@ -65,19 +66,21 @@ else
 	echo "'source zsh-syntax-highlighting from brew' already exists in settings.zsh"
 fi
 
-echo "****************************************************************"
+echo "-----------------------------------------------------------------"
 
 # 4.1.2 `zsh-completions`
 echo "Installing 'zsh-completions'" 
 echo "Cloning 'zsh-completions' repo..." 
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM_PATH}/plugins/zsh-completions
-echo "****************************************************************"
+
+echo "----------------------------------------------------------------"
 
 # 4.1.3 `zsh-autosuggestions`
 echo "Installing 'zsh-syntax-autosuggestions'" 
 echo "Cloning 'zsh-autosuggestions' repo..."
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM_PATH}/plugins/zsh-autosuggestions
-echo "****************************************************************"
+
+echo "----------------------------------------------------------------"
 
 # 4.2 Add plugins to .zshrc
 NEW_PLUGINS="plugins=( git zsh-completions zsh-autosuggestions )"
@@ -89,6 +92,7 @@ else
 	echo "Adding plugins line to .zshrc..."
 	echo "$NEW_PLUGINS" >> "$ZHSRC_PATH"
 fi
-echo "****************************************************************"
+
+echo "----------------------------------------------------------------"
 
 echo "All set \u2705. Enjoy your terminal\U1F680."
