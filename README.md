@@ -2,7 +2,7 @@
 Collection of customized and handy configuration files for an easy and quick development environment setup.
 
 ## Installation
-- Start with cloning the repo: `git clone https://github.com/eKirad/dotfiles.git`
+- Start with cloning the repository: `git clone https://github.com/eKirad/dotfiles.git`
 - Execute the `install` script, which will:
   - install `diff-so-fancy`[^1] with `brew`
   - install/clone `oh-my-zsh`[^2]
