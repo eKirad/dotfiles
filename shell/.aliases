@@ -5,6 +5,7 @@
 # ---------------------------------------------------
 alias gs='git status'
 alias gc='gitmoji -c' # Assumes an installed `gitmoji`
+alias ga='git add'
 alias gf='git fetch'
 alias gp='git push'
 alias grs='git restore --staged'
@@ -14,7 +15,8 @@ alias gresh='git reset --hard HEAD~1'
 alias ggraph='git log --all --graph --decorate'
 alias ggraphoneline='git log --all --graph --decorate --oneline'
 alias gamend='git commit --amend --no-edit'
-alias gadde='f () { git add . ":!$1"; }; f'
+alias gadde='f () { git add . ":!$1"; }; f' # git add with exclusion
+alias gm='git branch --merged'
 #----------------------------------------------------
 # 2. BASH 
 # ---------------------------------------------------
@@ -35,22 +37,25 @@ alias check_sha='shasum -a 256'
 alias mv='mv -i'
 alias cp='cp -i'
 
-# 2.4 Navigation
+# 2.4 Auto-correct typos
+alias dc='cd'
+
+# 2.5 Navigation
 alias ..='cd ..'
 alias ....='cd ../..'
 alias -- -='cd -'
 
-# 2.5 Create directory & navigate to it
+# 2.6 Create directory & navigate to it
 mcd() {
     mkdir "${1}" && cd "${1}" 	
 }
 
-# 2.6 Execute command in directory
+# 2.7 Execute command in directory
 xin(){
     cd "${1}" && shift && "${@}"
 }
 
-# 2.7 List files & grep
+# 2.8 List files & grep
 lsgrep() {
   ls -la | grep "${1}"
 }
@@ -62,4 +67,8 @@ curljq() {
     curl "${1}" | jq "." # Assumes an installed `jq` 
 }
 
-
+#----------------------------------------------------
+# 3. ZSH 
+# ---------------------------------------------------
+alias zconf="vim ~/.zshrc"
+alias zsource="source ~/.zshrc"
