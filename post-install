@@ -2,16 +2,20 @@
 
 # 0. Configs
 CURRENT_DIR=$(pwd)
+VIMRC_PATH="$CURRENT_DIR/shell/.vimrc"
 ZSH_SETTINGS_PATH="$CURRENT_DIR/zsh/settings.zsh"
 ALIASES_PATH="$CURRENT_DIR/shell/.aliases"
 ZSHRC_PATH="$HOME/.zshrc"
 
-# 1. ZSH Settings
+# 1. Vim
+ln -sf $VIMRC_PATH $HOME/.vimrc
 
-# 1.1 Create Symlink
+# 2. ZSH Settings
+
+# 2.1 Create Symlink
 ln -sf $ZSH_SETTINGS_PATH $HOME/settings.zsh
 
-# 1.2 Load ZSH Settings
+# 2.2 Load ZSH Settings
 if ! grep -q "source $HOME/settings.zsh" "$ZSHRC_PATH"; then
 	echo "Adding settings.zsh to .zshrc"
 	echo "source $HOME/settings.zsh" >> "$ZSHRC_PATH"
@@ -20,12 +24,12 @@ else
 	echo "'source $ZSH_SETTINGS_PATH' already exists in .zshrc"
 fi
 
-# 2. Aliases 
+# 3. Aliases 
 
 # 2.1 Create Symlink
 ln -sf $ALIASES_PATH $HOME/.aliases
 
-# 2.2 Load Aliases 
+# 3.2 Load Aliases 
 if ! grep -q "source $HOME/.aliases" "$ZSHRC_PATH"; then
 	echo "Adding .aliases to .zshrc"
 	echo "source $HOME/.aliases" >> "$ZSHRC_PATH"
@@ -34,13 +38,13 @@ else
 	echo "'source $ALIASES_PATH' already exists in .zshrc"
 fi
 
-# 3. Plugins
+# 4. ZSH Plugins
 
-# 3.1 Get plugins
+# 4.1 Get ZSH plugins
 
 ZSH_CUSTOM_PATH="$CURRENT_DIR/oh-my-zsh/custom"
 
-# 3.1.1 `zhs-syntax-highlighting`
+# 4.1.1 `zhs-syntax-highlighting`
 
 ZSH_SETTINGS_PATH=./zsh/settings.zsh
 
@@ -55,17 +59,17 @@ else
 	echo "'source zsh-syntax-highlighting from brew' already exists in settings.zsh"
 fi
 
-# 3.1.2 `zsh-completions`
+# 4.1.2 `zsh-completions`
 
 echo "Cloning 'zsh-completions' repo..." 
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM_PATH}/plugins/zsh-completions
 
-# 3.1.3 `zsh-autosuggestions`
+# 4.1.3 `zsh-autosuggestions`
 
 echo "Cloning 'zsh-autosuggestions' repo..."
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM_PATH}/plugins/zsh-autosuggestions
 
-# 3.2 Add plugins to .zshrc
+# 4.2 Add plugins to .zshrc
 NEW_PLUGINS="plugins=( git zsh-completions zsh-autosuggestions )"
 
 if grep -q "plugins" "$ZSHRC_PATH"; then
