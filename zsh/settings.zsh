@@ -30,3 +30,4 @@ bindkey "^R" history-incremental-search-backward
 
 # 2. Editor
 export EDITOR=vim
+
