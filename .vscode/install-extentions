@@ -23,7 +23,6 @@ elif [ "$1" = "install" ]; then
  	cat .vscode-extensions.txt | xargs -L 1 code --install-extensions
  	echo "Extensions installed successfully."
  else
-	echo "\n"
-	echo "\U1F7E1 Argument missing!"
+	echo "\n\U1F7E1 Argument missing!"
  	echo "\U1F449 Usage: $0 { export | instsall }\n"
 fi
