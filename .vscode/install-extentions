@@ -1,10 +1,10 @@
 #!/usr/bin/env zsh 
 
-echo "Installing VS code extentions from 'vscode-extentions.txt'..."
+echo "Installing VS code extensions from 'vscode-extensions.txt'..."
 
 if [ "$1" = "export" ]; then
 	if [ -f .vscode-extensions.txt ]; then		
-		read -p ".vscode-extentions.txt already exists. Do you want to overwrite? (y/n): " confirm
+		read -p ".vscode-extensions.txt already exists. Do you want to overwrite? (y/n): " confirm
 
 		if [ "$confirm" != "y" ]; then
 			echo "Export canceled."
@@ -12,16 +12,16 @@ if [ "$1" = "export" ]; then
 		fi
 	fi
 	
-	code --list-extentions > .vscode-extentions.txt
-	echo "Extentions exported to .vscode-extentions.txt"
+	code --list-extensions > .vscode-extensions.txt
+	echo "Extensions exported to .vscode-exsentions.txt"
 elif [ "$1" = "install" ]; then
- 	if [ ! -f .vscode-extentions.txt ]; then
- 		echo ".vscode-extentions.txt not found. Please make sure that extentions are exported into a file before installing"
+ 	if [ ! -f .vscode-extensions.txt ]; then
+ 		echo ".vscode-extensions.txt not found. Please make sure that extensions are exported into a file before installing"
  		exit 1
  	fi
 	
- 	cat .vscode-extentions.txt | xargs -L 1 code --install-extentions
- 	echo "Extentions installed successfully."
+ 	cat .vscode-extensions.txt | xargs -L 1 code --install-extensions
+ 	echo "Extensions installed successfully."
  else
 	echo "\n"
 	echo "\U1F7E1 Argument missing!"
