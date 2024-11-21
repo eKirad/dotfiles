@@ -20,4 +20,4 @@ Note: Some of the `git` aliases assume an installed `gitmoji`[^6]. Please refer 
 [^3]: `zsh-syntax-highlighting` GitHub - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-autosuggestions)
 [^4]: `zsh-completions` GitHub - [zsh-completions](https://github.com/zsh-users/zsh-completions)
 [^5]: `zsh-autosuggestions` GitHub - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-[^6]: `gitmoji` GitHub - [gitmoji](https://github.com/carloscuesta/gitmoji)
+[^6]: `gitmoji` official documentation - [gitmoji](https://github.com/carloscuesta/gitmoji)
