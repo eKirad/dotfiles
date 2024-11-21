@@ -1,5 +1,5 @@
 # dotfiles
-Collection of useful dotfiles.
+Collection of customized and handy configuration files for an easy and quick development environment setup.
 
 ## Installation
 - Start with cloning the repo: `git clone https://github.com/eKirad/dotfiles.git`
