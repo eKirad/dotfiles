@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
-set -x
+# set -x
 set -e
 
+# 1. ZSH
+
+CURRENT_DIR=$(pwd)
+
+# Using oh-my-zsh
+OH_MY_ZSH_INSTALL_SCRIPT_URL="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
+
+export ZSH="$CURRENT_DIR/oh-my-zsh"
+
+sh -c "$(curl -fsSL $OH_MY_ZSH_INSTALL_SCRIPT_URL)" 
