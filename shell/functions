@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+install_brew_package_if_needed () {
+	PACKAGE=$1
+	
+	if brew list --formula "$PACKAGE" &>/dev/null; then
+		echo "$PACKAGE already installed, skipping."
+	else
+		echo "$PACKAGE not found, installing..."
+		brew install "$PACKAGE"
+		
+		if brew list --formula "`$PACKAGE`" &>/dev/null; then
+			echo "$PACKAGE has been installed successfully."
+		else
+			echo "Failed to install $PACKAGE"
+			exit 1
+		fi
+	fi
+}
+
+

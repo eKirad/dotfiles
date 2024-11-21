@@ -1,0 +1,111 @@
+#!/usr/bin/env zsh 
+
+# 0. Configs
+CURRENT_DIR=$(pwd)
+VIMRC_PATH="$CURRENT_DIR/vim/.vimrc"
+ZSH_SETTINGS_PATH="$CURRENT_DIR/zsh/settings.zsh"
+ALIASES_PATH="$CURRENT_DIR/shell/.aliases"
+ZSHRC_PATH="$HOME/.zshrc"
+
+source "$CURRENT_DIR/shell/functions"
+
+echo "Configuring dotfiles \u2615 \u2615 \u2615..."
+
+# 1. Vim
+
+# Create Symlink
+ln -sf $VIMRC_PATH $HOME/.vimrc
+
+# 2. ZSH Settings
+
+# 2.1 Create Symlink
+ln -sf $ZSH_SETTINGS_PATH $HOME/settings.zsh
+
+# 2.2 Load ZSH Settings
+echo "Adding settings.zsh to .zshrc..."
+
+if ! grep -q "source $HOME/settings.zsh" "$ZSHRC_PATH"; then
+	echo "source $HOME/settings.zsh" >> "$ZSHRC_PATH"
+	echo "settings.zsh successfully added."
+else 
+	echo "'source $ZSH_SETTINGS_PATH' already exists in '.zshrc'."
+fi
+
+echo "Done. \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680"
+echo "\n"
+
+# 3. Aliases 
+
+# 2.1 Create Symlink
+ln -sf $ALIASES_PATH $HOME/.aliases
+
+# 3.2 Load Aliases 
+echo "Adding .aliases to .zshrc"
+
+if ! grep -q "source $HOME/.aliases" "$ZSHRC_PATH"; then
+	echo "source $HOME/.aliases" >> "$ZSHRC_PATH"
+else 
+	echo "'source $ALIASES_PATH' already exists in '.zshrc'."
+fi
+
+echo "Done. \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680"
+echo "\n"
+
+# 4. ZSH Plugins
+
+# 4.1 Get ZSH plugins
+
+ZSH_CUSTOM_PATH="$CURRENT_DIR/oh-my-zsh/custom"
+
+# 4.1.1 `zhs-syntax-highlighting`
+
+ZSH_SETTINGS_PATH=./zsh/settings.zsh
+
+echo "Installing 'zsh-syntax-highlighting' plug-in with 'brew'..."
+install_brew_package_if_needed "zsh-syntax-highlighting"
+
+echo "Adding ZSH-syntax-highlighting to settings.zsh" 
+if ! grep -q "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" "$ZSH_SETTINGS_PATH"; then
+	echo "# This an auto-generated line, for further details please refer to the '../post-install' script" >> "$ZSH_SETTINGS_PATH"
+	echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "$ZSH_SETTINGS_PATH" 
+else 
+	echo "'source zsh-syntax-highlighting from brew' already exists in settings.zsh."
+fi
+
+echo "Done. \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680"
+echo "\n"
+
+# 4.1.2 `zsh-completions`
+echo "Installing 'zsh-completions'" 
+echo "Cloning 'zsh-completions' repo..." 
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM_PATH}/plugins/zsh-completions
+
+echo "Done. \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680"
+echo "\n"
+
+# 4.1.3 `zsh-autosuggestions`
+echo "Installing 'zsh-syntax-autosuggestions'" 
+echo "Cloning 'zsh-autosuggestions' repo..."
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM_PATH}/plugins/zsh-autosuggestions
+
+echo "Done. \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680"
+echo "\n"
+
+# 4.2 Add plugins to .zshrc
+NEW_PLUGINS="plugins=( git zsh-completions zsh-autosuggestions )"
+
+if grep -q "plugins" "$ZSHRC_PATH"; then
+	echo "Updating plugins line in .zshrc..."
+	sed -i '' "s/^plugins=(.*)/$NEW_PLUGINS/" "$ZSHRC_PATH"
+else
+	echo "Adding plugins line to .zshrc..."
+	echo "$NEW_PLUGINS" >> "$ZHSRC_PATH"
+fi
+
+echo "Done. \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680"
+echo "\n"
+
+echo "\u2705 All set. \U0001F6E0  Dotfiles configured. \u2728 Enjoy your terminal."
+echo "\n"
+
+

@@ -1,5 +1,25 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh 
 
-set -x
 set -e
 
+source ./shell/functions
+
+echo "Installing dependencies \u2615 \u2615 \u2615..." 
+
+# 1. Diff so fancy
+
+PACKAGE="diff-so-fancy"
+install_brew_package_if_needed "$PACKAGE"
+
+# 2. ZSH
+
+CURRENT_DIR=$(pwd)
+
+# Using oh-my-zsh
+OH_MY_ZSH_INSTALL_SCRIPT_URL="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
+
+export ZSH="$CURRENT_DIR/oh-my-zsh"
+
+sh -c "$(curl -fsSL $OH_MY_ZSH_INSTALL_SCRIPT_URL)"
+
+echo "Dependencies installed sucessfully. Please continue with running the 'post-install' script to apply the configs." 
