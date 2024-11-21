@@ -14,22 +14,19 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # 1.1 Use vim style line editing in zsh
 bindkey -v
 autoload -U edit-command-line && zle -N edit-command-line
-
+setopt interactivecomments
 # 1.2 Movement
 bindkey -M viins 'gg' beginning-of-buffer-or-history
 bindkey -M viins 'G' end-of-buffer-or-history
 
 # 1.3 Edit line
-bindkey -M viins '^V' edit-command-line
+bindkey -M viins '^E' edit-command-line
 
 # 1.4 Backspace
-bindkey '^E' backward-delete-char
+bindkey '^H' backward-delete-char
 
 # 1.5 Use incremental search
 bindkey "^R" history-incremental-search-backward
 
 # 2. Editor
 export EDITOR=vim
-
-
-
