@@ -10,6 +10,8 @@ ZSHRC_PATH="$HOME/.zshrc"
 source "$CURRENT_DIR/shell/functions"
 
 # 1. Vim
+
+# Create Symlink
 ln -sf $VIMRC_PATH $HOME/.vimrc
 
 # 2. ZSH Settings
