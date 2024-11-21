@@ -1,0 +1,10 @@
+#!/usr/bin/env bash 
+
+set -e
+echo "Installing ZSH plug-ins..."
+
+echo "Installing ZSH-syntax-highlighting plug-in..."
+brew install zsh-syntax-highlighting
+
+echo "Adding ZSH-syntax-highlighting to settings.zsh" 
+echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ./zsh/settings.zsh
