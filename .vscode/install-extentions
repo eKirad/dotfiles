@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh 
+
+
+exho "Installing VS code extentions from 'vscode-extentions.txt'..."
+cat .vscode-extentions.txt | xargs -L 1 code --install-extentions
+echo "Extentions installed successfully."
