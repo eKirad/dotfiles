@@ -1,12 +1,8 @@
 #!/usr/bin/env zsh 
 
-DIR=$(pwd)
-
 echo "Installing VS code extentions from 'vscode-extentions.txt'..."
 
-echo $DIR
-
-if [ "$1" == "export" ]; then
+if [ "$1" = "export" ]; then
 	if [ -f .vscode-extensions.txt ]; then		
 		read -p ".vscode-extentions.txt already exists. Do you want to overwrite? (y/n): " confirm
 
@@ -18,14 +14,16 @@ if [ "$1" == "export" ]; then
 	
 	code --list-extentions > .vscode-extentions.txt
 	echo "Extentions exported to .vscode-extentions.txt"
-elif [ "$1" == "install" ]; then
-	if [ ! -f .vscode-extentions.txt ]; then
-		echo ".vscode-extentions.txt not found. Please make sure that extentions are exported into a file before installing"
-		exit 1
-	fi
+elif [ "$1" = "install" ]; then
+ 	if [ ! -f .vscode-extentions.txt ]; then
+ 		echo ".vscode-extentions.txt not found. Please make sure that extentions are exported into a file before installing"
+ 		exit 1
+ 	fi
 	
-	cat .vscode-extentions.txt | xargs -L 1 code --install-extentions
-	echo "Extentions installed successfully."
-else
-	echo "Usage: $0 {export|instsall}"
+ 	cat .vscode-extentions.txt | xargs -L 1 code --install-extentions
+ 	echo "Extentions installed successfully."
+ else
+	echo "\n"
+	echo "\U1F7E1 Argument missing!"
+ 	echo "\U1F449 Usage: $0 { export | instsall }\n"
 fi
