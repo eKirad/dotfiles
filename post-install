@@ -1,0 +1,77 @@
+#!/usr/bin/env zsh 
+
+CURRENT_DIR=$(pwd)
+ZSH_SETTINGS_PATH="$CURRENT_DIR/zsh/settings.zsh"
+ALIASES_PATH="$CURRENT_DIR/shell/.aliases"
+
+ZSHRC_PATH="$HOME/.zshrc"
+
+# 1. Settings
+
+# 1.1 Create Symlink
+ln -sf $ZSH_SETTINGS_PATH $HOME/settings.zsh
+
+# 1.2 Load Settings
+if ! grep -q "source $HOME/settings.zsh" "$ZSHRC_PATH"; then
+	echo "Adding settings.zsh to .zshrc"
+	echo "source $HOME/settings.zsh" >> "$ZSHRC_PATH"
+
+else 
+	echo "'source $ZSH_SETTINGS_PATH' already exists in .zshrc"
+fi
+
+# 2. Aliases 
+
+# 2.1 Create Symlink
+ln -sf $ALIASES_PATH $HOME/.aliases
+
+# 2.2 Load Aliases 
+if ! grep -q "source $HOME/.aliases" "$ZSHRC_PATH"; then
+	echo "Adding .aliases to .zshrc"
+	echo "source $HOME/.aliases" >> "$ZSHRC_PATH"
+
+else 
+	echo "'source $ALIASES_PATH' already exists in .zshrc"
+fi
+
+# 3. Plugins
+
+# 3.1 Get plugins
+
+ZSH_CUSTOM_PATH="$CURRENT_DIR/oh-my-zsh/custom"
+
+# 3.1.1 `zhs-syntax-highlighting`
+
+ZSH_SETTINGS_PATH=./zsh/settings.zsh
+
+echo "Installing 'zsh-syntax-highlighting' plug-in with 'brew'..."
+brew install zsh-syntax-highlighting
+
+echo "Adding ZSH-syntax-highlighting to settings.zsh" 
+if ! grep -q "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" "$ZSH_SETTINGS_PATH"; then
+	echo "# This an auto-generated line, for further details please refer to the `post-install` script" >> "$ZSH_SETTINGS_PATH"
+	echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "$ZSH_SETTINGS_PATH" 
+else 
+	echo "'source zsh-syntax-highlighting from brew' already exists in settings.zsh"
+fi
+
+# 3.1.2 `zsh-completions`
+
+echo "Cloning 'zsh-completions' repo..." 
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM_PATH}/plugins/zsh-completions
+
+# 3.1.3 `zsh-autosuggestions`
+
+echo "Cloning 'zsh-autosuggestions' repo..."
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM_PATH}/plugins/zsh-autosuggestions
+
+# 3.2 Add plugins to .zshrc
+NEW_PLUGINS="plugins=( git zsh-completions zsh-autosuggestions )"
+
+if grep -q "plugins" "$ZSHRC_PATH"; then
+	echo "Updating plugins line in .zshrc..."
+	sed -i '' "s/^plugins=(.*)/$NEW_PLUGINS/" "$ZSHRC_PATH"
+else
+	echo "Adding plugins line to .zshrc..."
+	echo "$NEW_PLUGINS" >> "$ZHSRC_PATH"
+fi
