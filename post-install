@@ -31,7 +31,8 @@ else
 	echo "'source $ZSH_SETTINGS_PATH' already exists in '.zshrc'."
 fi
 
-echo "----------------------------------------------------------------"
+echo "Done. \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680"
+echo "\n"
 
 # 3. Aliases 
 
@@ -47,7 +48,8 @@ else
 	echo "'source $ALIASES_PATH' already exists in '.zshrc'."
 fi
 
-echo "-----------------------------------------------------------------"
+echo "Done. \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680"
+echo "\n"
 
 # 4. ZSH Plugins
 
@@ -70,21 +72,24 @@ else
 	echo "'source zsh-syntax-highlighting from brew' already exists in settings.zsh."
 fi
 
-echo "-----------------------------------------------------------------"
+echo "Done. \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680"
+echo "\n"
 
 # 4.1.2 `zsh-completions`
 echo "Installing 'zsh-completions'" 
 echo "Cloning 'zsh-completions' repo..." 
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM_PATH}/plugins/zsh-completions
 
-echo "----------------------------------------------------------------"
+echo "Done. \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680"
+echo "\n"
 
 # 4.1.3 `zsh-autosuggestions`
 echo "Installing 'zsh-syntax-autosuggestions'" 
 echo "Cloning 'zsh-autosuggestions' repo..."
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM_PATH}/plugins/zsh-autosuggestions
 
-echo "----------------------------------------------------------------"
+echo "Done. \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680"
+echo "\n"
 
 # 4.2 Add plugins to .zshrc
 NEW_PLUGINS="plugins=( git zsh-completions zsh-autosuggestions )"
@@ -97,6 +102,10 @@ else
 	echo "$NEW_PLUGINS" >> "$ZHSRC_PATH"
 fi
 
-echo "----------------------------------------------------------------"
+echo "Done. \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680 \U1F680"
+echo "\n"
 
-echo "\u2705 All set. \U0001F6E0  Dotfiles configured. \U1F680 Enjoy your terminal."
+echo "\u2705 All set. \U0001F6E0  Dotfiles configured. \u2728 Enjoy your terminal."
+echo "\n"
+
+
