@@ -9,6 +9,8 @@ ZSHRC_PATH="$HOME/.zshrc"
 
 source "$CURRENT_DIR/shell/functions"
 
+echo "Configuring dotfiles \u2615 \u2615 \u2615..."
+
 # 1. Vim
 
 # Create Symlink
@@ -97,4 +99,4 @@ fi
 
 echo "----------------------------------------------------------------"
 
-echo "All set \u2705. Enjoy your terminal\U1F680."
+echo "\u2705 All set. \U0001F6E0  Dotfiles configured. \U1F680 Enjoy your terminal."

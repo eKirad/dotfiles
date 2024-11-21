@@ -1,8 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh 
 
 set -e
 
 source ./shell/functions
+
+echo "Installing dependencies \u2615 \u2615 \u2615..." 
 
 # 1. Diff so fancy
 
@@ -18,4 +20,6 @@ OH_MY_ZSH_INSTALL_SCRIPT_URL="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/
 
 export ZSH="$CURRENT_DIR/oh-my-zsh"
 
-sh -c "$(curl -fsSL $OH_MY_ZSH_INSTALL_SCRIPT_URL)" 
+sh -c "$(curl -fsSL $OH_MY_ZSH_INSTALL_SCRIPT_URL)"
+
+echo "Dependencies installed sucessfully. Please continue with running the 'post-install' script to apply the configs." 
