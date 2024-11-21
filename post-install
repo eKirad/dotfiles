@@ -1,17 +1,17 @@
 #!/usr/bin/env zsh 
 
+# 0. Configs
 CURRENT_DIR=$(pwd)
 ZSH_SETTINGS_PATH="$CURRENT_DIR/zsh/settings.zsh"
 ALIASES_PATH="$CURRENT_DIR/shell/.aliases"
-
 ZSHRC_PATH="$HOME/.zshrc"
 
-# 1. Settings
+# 1. ZSH Settings
 
 # 1.1 Create Symlink
 ln -sf $ZSH_SETTINGS_PATH $HOME/settings.zsh
 
-# 1.2 Load Settings
+# 1.2 Load ZSH Settings
 if ! grep -q "source $HOME/settings.zsh" "$ZSHRC_PATH"; then
 	echo "Adding settings.zsh to .zshrc"
 	echo "source $HOME/settings.zsh" >> "$ZSHRC_PATH"
