@@ -5,7 +5,7 @@ Collection of customized and handy configuration files for an easy and quick dev
 - Start with cloning the repository: `git clone https://github.com/eKirad/dotfiles.git`
 - Execute the `install` script, which will:
   - install `diff-so-fancy`[^1] with `brew`
-  - install/clone `oh-my-zsh`[^2]
+  - clone and install `oh-my-zsh`[^2]
 - In order to make use of all the listed *dotfiles*, execute the `post-install` script, which involves:
   - link the `.vimrc` file
   - link the zsh-related `settings.zsh`
