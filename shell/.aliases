@@ -72,3 +72,9 @@ curljq() {
 # ---------------------------------------------------
 alias zconf="vim ~/.zshrc"
 alias zsource="source ~/.zshrc"
+
+#----------------------------------------------------
+# 3. SSH 
+# ---------------------------------------------------
+alias sshhome="cd ~/.ssh"
+alias sshconfig="vim ~/.ssh/config"

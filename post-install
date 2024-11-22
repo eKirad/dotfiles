@@ -11,6 +11,11 @@ source "$CURRENT_DIR/shell/functions"
 
 echo "Configuring dotfiles \u2615 \u2615 \u2615..."
 
+if [ ! -f "$HOME/.zshrc" ]; then
+	echo ".zshrc missing! Dotfiles configuration cancelled, please make sure that the install script ran successfully."
+	exit 1
+fi
+
 # 1. Vim
 
 # Create Symlink
