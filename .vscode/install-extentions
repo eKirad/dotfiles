@@ -3,24 +3,26 @@
 echo "Running VS code extensions installer..."
 
 if ! command code --version > /dev/null 2>&1; then
-	echo "VS code not installed. Please make sure to install VS code first."
-	
-	exit 1
+ 	echo "\u274C VS code not installed. Please make sure to install VS code first."
 fi
 
 if [ "$1" = "export" ]; then
 	if [ -f .vscode-extensions.txt ]; then		
 		read -q "response?.vscode-extensions.txt already exists! Do you want to overwrite it? (Press 'y' or 'yes' to confirm; Press any key to abort)" 
 
-		if [[ "$response" = "yes" || "$response" = "y"  ]]; then
+		if [[ "$response" != "yes" && "$response" != "y"  ]]; then
+			echo "\n\n \u274C Export canceled."
+		else	
 			echo "\n\nExporting extensions and overwriting .vscode-extensions.txt"		
 			code --list-extensions > .vscode-extensions.txt
 			echo "\n\U2705 Extensions successfully exported to .vscode-exsentions.txt"
-		else	
-			echo "\n\nExport canceled."
 		fi
 		
 		exit 0
+	else
+		echo "\nExporting extensions to .vscode-extensions.txt"		
+		code --list-extensions > .vscode-extensions.txt
+		echo "\n\U2705 Extensions successfully exported to .vscode-exsentions.txt"
 	fi
 elif [ "$1" = "install" ]; then
 	echo "Installing VS code extensions from 'vscode-extensions.txt'..."
