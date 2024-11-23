@@ -4,16 +4,17 @@ echo "Running VS code extensions installer..."
 
 if [ "$1" = "export" ]; then
 	if [ -f .vscode-extensions.txt ]; then		
-		read -p ".vscode-extensions.txt already exists. Do you want to overwrite? (y/n): " confirm
+		read -q "response?.vscode-extensions.txt already exists! Do you want to overwrite it? (Type 'y' or 'yes' to confirm; Press any key to abort)" 
 
-		if [ "$confirm" != "y" ]; then
-			echo "Export canceled."
+		if [[ "$response" = "yes" || "$response" = "y"  ]]; then
+			echo "\n\nExporting extensions and overwriting .vscode-extensions.txt"		
+			code --list-extensions > .vscode-extensions.txt
+			echo "\n\U2705 Extensions successfully exported to .vscode-exsentions.txt"
+		else	
+			echo "\n\nExport canceled."
 			exit 0
 		fi
 	fi
-	
-	code --list-extensions > .vscode-extensions.txt
-	echo "\n\U2705 Extensions successfully exported to .vscode-exsentions.txt"
 elif [ "$1" = "install" ]; then
 	echo "Installing VS code extensions from 'vscode-extensions.txt'..."
 
