@@ -60,6 +60,11 @@ lsgrep() {
   ls -la | grep "${1}"
 }
 
+# 2.9 Pgrep & kill a process
+alias pgrepkill() {
+	pgrep -af "${1}" | awk '{print $1}' | xargs kill
+}
+
 #----------------------------------------------------
 # 3. CURL 
 # ---------------------------------------------------
