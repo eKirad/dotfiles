@@ -1,0 +1,40 @@
+#!/usr/bin/env zsh 
+
+echo "Running VS code extensions installer..."
+
+if ! command code --version > /dev/null 2>&1; then
+ 	echo "\u274C VS code not installed. Please make sure to install VS code first."
+fi
+
+if [ "$1" = "export" ]; then
+	if [ -f .vscode-extensions.txt ]; then		
+		read -q "response?.vscode-extensions.txt already exists! Do you want to overwrite it? (Press 'y' or 'yes' to confirm; Press any key to abort)" 
+
+		if [[ "$response" != "yes" && "$response" != "y"  ]]; then
+			echo "\n\n \u274C Export canceled."
+		else	
+			echo "\n\nExporting extensions and overwriting .vscode-extensions.txt"		
+			code --list-extensions > .vscode-extensions.txt
+			echo "\n\U2705 Extensions successfully exported to .vscode-exsentions.txt"
+		fi
+		
+		exit 0
+	else
+		echo "\nExporting extensions to .vscode-extensions.txt"		
+		code --list-extensions > .vscode-extensions.txt
+		echo "\n\U2705 Extensions successfully exported to .vscode-exsentions.txt"
+	fi
+elif [ "$1" = "install" ]; then
+	echo "Installing VS code extensions from 'vscode-extensions.txt'..."
+
+ 	if [ ! -f .vscode-extensions.txt ]; then
+ 		echo ".vscode-extensions.txt not found. Please make sure that extensions are exported into a file before installing"
+ 		exit 1
+ 	fi
+	
+ 	cat .vscode-extensions.txt | xargs -L 1 code --install-extensions
+ 	echo "\n\U2705 Extensions installed successfully.\n"
+ else
+	echo "\n\U1F7E1 Argument missing!"
+ 	echo "\U1F449 Usage: $0 { export | instsall }\n"
+fi
