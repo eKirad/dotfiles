@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh 
 
-echo "Installing VS code extensions from 'vscode-extensions.txt'..."
+echo "Running VS code extensions installer..."
 
 if [ "$1" = "export" ]; then
 	if [ -f .vscode-extensions.txt ]; then		
@@ -15,6 +15,8 @@ if [ "$1" = "export" ]; then
 	code --list-extensions > .vscode-extensions.txt
 	echo "\n\U2705 Extensions successfully exported to .vscode-exsentions.txt"
 elif [ "$1" = "install" ]; then
+	echo "Installing VS code extensions from 'vscode-extensions.txt'..."
+
  	if [ ! -f .vscode-extensions.txt ]; then
  		echo ".vscode-extensions.txt not found. Please make sure that extensions are exported into a file before installing"
  		exit 1
